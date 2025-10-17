@@ -1,0 +1,8 @@
+# compile (C)
+gcc -o bin/sample.exe sample.c
+
+# or compile with g++ (if you prefer)
+g++ -o bin/sample.exe sample.c
+
+# run
+./bin/sample.exe
