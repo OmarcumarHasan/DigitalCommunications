@@ -10,9 +10,9 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "rle.h"
-#include "analysis.h"
-#include "input.h"
+#include "../include/rle.h"
+#include "../include/analysis.h"
+#include "../include/input.h"
 
 int main(int argc, char *argv[]) {
     char input[1000];

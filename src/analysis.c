@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <string.h> // used for strlen
-#include "analysis.h"
+#include "../include/analysis.h"
 
 // Analyzes the data to find frequency, most/least frequent characters, and compression ratio
 void analyze_data(const char *input, const char *compressed) {

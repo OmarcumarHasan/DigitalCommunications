@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "rle.h"
+#include "../include/rle.h"
 
 // Performs Run-Length Encoding (RLE) compression and writes output into 'output' buffer
 // Returns the length of the compressed string

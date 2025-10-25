@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "input.h"
+#include "../include/input.h"
 
 // Reads text input from a file into a buffer
 void read_file_input(char *buffer, const char *filename, int max_length) {
@@ -21,7 +21,6 @@ void read_file_input(char *buffer, const char *filename, int max_length) {
     char c;
     // Read each character one by one using fgetc()
     // Keep reading until we reach End-Of-File (EOF)
-    // Also make sure we don’t write past the end of the buffer
     while ((c = fgetc(file)) != EOF && i < max_length - 1) {
         buffer[i++] = c;
     }
