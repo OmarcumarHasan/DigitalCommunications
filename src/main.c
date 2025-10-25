@@ -10,27 +10,41 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "rle.h"
+#include "analysis.h"
+#include "input.h"
 
-int main(void) {
-    // Hardcoded input text for testing
-    char input[] = "AAAABBCCDAA";
+int main(int argc, char *argv[]) {
+    char input[1000];
+    char compressed[2000];
+    memset(input, 0, sizeof(input));
+    memset(compressed, 0, sizeof(compressed));
 
-    printf("Original: %s\n", input);
-    printf("Compressed: ");
-
-    int count = 1;
-
-    // Core RLE logic
-    for (int i = 0; i < strlen(input); i++) {
-        if (input[i] == input[i + 1]) {
-            count++;
+    // -------------------------------
+    // 1. Input Handling
+    // -------------------------------
+    if (argc > 1) {
+        if (strstr(argv[1], ".txt")) {
+            read_file_input(input, argv[1], sizeof(input));
         } else {
-            printf("%c%d", input[i], count);
-            count = 1;
+            strncpy(input, argv[1], sizeof(input) - 1);
         }
+    } else {
+        strcpy(input, "AAAABBCCDAA"); // Default hardcoded string
     }
 
-    printf("\n");
-    printf("Stage 2 complete core algorithm verified.\n");
+    // -------------------------------
+    // 2. Compression
+    // -------------------------------
+    printf("Original: %s\n", input);
+    int comp_len = rle_compress(input, compressed);
+    compressed[comp_len] = '\0';
+    printf("Compressed: %s\n", compressed);
+
+    // -------------------------------
+    // 3. Analysis
+    // -------------------------------
+    analyze_data(input, compressed);
+
     return 0;
 }
